@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>API - RequeteInfo</title>
+    <meta name="description" content="">
+    <meta name="author" content="josemiguel">
+
+    <meta http-equiv="cleartype" content="on">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {% load static %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,500|Source+Code+Pro:300" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" media="all">
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div class="left-menu">
+    <div class="content-logo">
+        <img alt="RequeteInfo Documentación" title="RequeteInfo Documentación" src="{% static 'images/logo.png' %}" height="32" />
+        <span>API RequeteInfo</span>
+    </div>
+    <div class="content-menu">
+        <ul>
+            <li class="scroll-to-link" data-target="get-started">
+                <a class="link-sidebar" href="{% url 'docs:home' %}">Introducción</a>
+            </li>
+            <li class="scroll-to-link" data-target="get-characters">
+                <a class="link-sidebar" href="{% url 'docs:usuarios' %}">Usuarios</a>
+            </li>
+            <li class="scroll-to-link" data-target="get-characters">
+                <a class="link-sidebar" href="{% url 'docs:bodega' %}">Bodega</a>
+            </li>
+            <li class="scroll-to-link" data-target="get-characters">
+                <a class="link-sidebar" href="{% url 'docs:venta' %}">Venta</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="content-page">
+    <div class="content-code"></div>
+    <div class="content">
+        <div class="overflow-hidden content-section" id="content-get-started">
+            {% block intro %}
+
+            {% endblock %}
+        </div>
+
+<!-- INICIA SECCION -->
+
+            <h2 id="get-characters">{% block titulo-seccion %}{% endblock %}</h2>
+
+            {% block contenido %}
+
+            {% endblock %}
+
+        </div>
+
+<!-- TERMINA SECCION -->
+
+
+    </div>
+</div>
+
+</body>
+</html>

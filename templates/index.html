@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block titulo-seccion %}
+{{ titulo_seccion }}
+{% endblock %}
+
+{% block contenido %}
+
+    {% for content in contenido %}
+<div class="overflow-hidden content-section" id="content-get-characters">
+    <h3 id="get-characters"><span class="metodo">{{ content.endpoint.metodo }}</span>{{ content.endpoint.titulo_metodo }}</h3>
+
+    <pre><code class="bash">{{ content.endpoint.request_example }}</code></pre>
+
+    <p>
+        <br>
+        {{ content.endpoint.descripcion }}
+        <br>
+        <code class="higlighted">{{ content.endpoint.url }}</code>
+    </p>
+    <br>
+
+    <pre><code class="json">{{ content.endpoint.response_example }}</code></pre>
+    {% if content.query %}
+        <h4>PARÁMETROS QUERY</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for parameter in content.parameters %}
+                <tr>
+                    <td>{{ parameter.field }}</td>
+                    <td>{{ parameter.tipo }}</td>
+                    <td>{{ parameter.descripcion }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+</div>
+    {% endfor %}
+
+{% endblock %}
