@@ -21,7 +21,6 @@
 <body>
 <div class="left-menu">
     <div class="content-logo">
-        <img alt="RequeteInfo Documentación" title="RequeteInfo Documentación" src="{% static 'images/logo.png' %}" height="32" />
         <span>API RequeteInfo</span>
     </div>
     <div class="content-menu">
@@ -29,15 +28,11 @@
             <li class="scroll-to-link" data-target="get-started">
                 <a class="link-sidebar" href="{% url 'docs:home' %}">Introducción</a>
             </li>
-            <li class="scroll-to-link" data-target="get-characters">
-                <a class="link-sidebar" href="{% url 'docs:usuarios' %}">Usuarios</a>
-            </li>
-            <li class="scroll-to-link" data-target="get-characters">
-                <a class="link-sidebar" href="{% url 'docs:bodega' %}">Bodega</a>
-            </li>
-            <li class="scroll-to-link" data-target="get-characters">
-                <a class="link-sidebar" href="{% url 'docs:venta' %}">Venta</a>
-            </li>
+            {% for section in sections %}
+                <li class="scroll-to-link" data-target="get-started">
+                    <a class="link-sidebar" href="{% url 'docs:index' section %}">{{ section }}</a>
+                </li>
+            {% endfor %}
         </ul>
     </div>
 </div>
